@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Fresita 💛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #f7f1e3;
+      font-family: "Times New Roman", Times, serif;
+      text-align: center;
+    }
+
+    #mensaje {
+      font-size: 32px;
+      margin-bottom: 15px;
+      min-height: 40px;
+    }
+
+    .pato {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 18px;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ffd966;
+      cursor: pointer;
+    }
+
+    .temblar {
+      animation: shake 0.4s;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+
+    /* 🔽 AQUÍ ESTÁ LA PARTE IMPORTANTE 🔽 */
+    .extra {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .extra img {
+      max-width: 90px;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="mensaje"></div>
+
+  <!-- Pato -->
+  <img 
+    src="1000103833-fotor-bg-remover-2026011623354.png" 
+    alt="Patito con corazón" 
+    class="pato"
+  >
+
+  <button id="boton">Pulsa aquí</button>
+
+  <div class="extra" id="extras"></div>
+
+  <script>
+    let contador = 0;
+    const mensaje = document.getElementById("mensaje");
+    const boton = document.getElementById("boton");
+    const extras = document.getElementById("extras");
+
+    boton.addEventListener("click", () => {
+      contador++;
+
+      boton.classList.remove("temblar");
+      void boton.offsetWidth;
+      boton.classList.add("temblar");
+
+      if (contador === 1) mensaje.textContent = "T";
+      else if (contador === 2) mensaje.textContent = "Te a";
+      else if (contador === 3) mensaje.textContent = "Te amo F";
+      else if (contador >= 4) mensaje.textContent = "Te amo Fresita";
+
+      if (contador === 5) {
+        const sticker = document.createElement("img");
+        sticker.src = "IMG-20260116-WA0000.png";
+        sticker.alt = "Sticker WhatsApp";
+        extras.appendChild(sticker);
+      }
+
+      if (contador === 6) {
+        const imagen = document.createElement("img");
+        imagen.src = "1000103707-fotor-bg-remover-2026011622951.png";
+        imagen.alt = "Imagen especial";
+        extras.appendChild(imagen);
+      }
+    });
+  </script>
+
+</body>
+</html>
